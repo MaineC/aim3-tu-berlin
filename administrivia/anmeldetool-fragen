@@ -1,0 +1,12 @@
+What is your personal motivation for participating in this project, what are you going to do to reach this goal?
+
+What was the most interesting software bug that you have fixed so far? What was its cause, how did you find it, how did you fix it?
+
+What are your previous experiences with free software?
+
+Imagine you were to build the createst spam filter world wide. You have a very large set of labeled training data at your disposal. In addition you have three great classification algorithms, each tunable by various parameters. What setup do you use to be able to reliably compare the three algorithms and chose the best one? Which setup do you use to predict future classification performance for your chosen algorithm?
+
+What is your favourite programming language - and what is the most enoying feature of it?
+
+Additional question: These questions are online on github at http://github.com/MaineC/aim3-tu-berlin as text file. Instead of filling in this online form, submit your answers in patch form to isabel@apache.org.
+
