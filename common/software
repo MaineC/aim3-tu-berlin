@@ -1,0 +1,17 @@
+Software relevant to the course:
+
+Java version:
+    * Sun JDK1.6
+
+Software for development:
+    * git
+    * emma
+    * maven
+    * patch
+    * Eclipse, alternativly IntelliJ
+    * junit
+
+System software:
+    * Hadoop 0.20.x
+    * Mahout trunk
+    * MR Unit
