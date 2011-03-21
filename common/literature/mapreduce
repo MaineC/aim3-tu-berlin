@@ -1,0 +1,25 @@
+Dean, J. and Ghemawat, S. 2004. MapReduce: simplified data processing on large clusters. In Proceedings of the 6th Conference on Symposium on Opearting Systems Design & Implementation - Volume 6 (San Francisco, CA, December 06 - 08, 2004). Operating Systems Design and Implementation. USENIX Association, Berkeley, CA, 10-10.
+
+S. Ghemawat, H. Gobioff, and S.-T. Leung, "The google file system," in SOSP '03: Proceedings of the nineteenth ACM symposium on Operating systems principles.    New York, NY, USA: ACM Press, 2003, pp. 29-43. [Online]. Available: http://dx.doi.org/10.1145/945445.945450
+
+Chang, F., Dean, J., Ghemawat, S., Hsieh, W., Wallach, D., Burrows, M., Chandra, T., Fikes, A., and Gruber, R. 2008. Bigtable: A Distributed Storage System for Structured Data. ACM Trans. Comput. Syst. 26, 2 (Jun. 2008), 1-26. DOI= http://doi.acm.org/10.1145/1365815.1365816
+
+M. K. Mckusick and S. Quinlan, "Gfs: Evolution on fast-forward - acm queue," ACM Queue, vol. 7, 2009. [Online]. Available: http://queue.acm.org/detail.cfm?id=1594206
+
+R. Pike, S. Dorward, R. Griesemer, and S. Quinlan, "Interpreting the data: Parallel analysis with sawzall," Sci. Program., vol. 13, no. 4, pp. 277-298, October 2005. [Online]. Available: http://portal.acm.org/citation.cfm?id=1239658
+
+C. Olston, B. Reed, U. Srivastava, R. Kumar, and A. Tomkins, "Pig latin: a not-so-foreign language for data processing," in SIGMOD '08: Proceedings of the 2008 ACM SIGMOD international conference on Management of data.    New York, NY, USA: ACM, 2008, pp. 1099-1110. [Online]. Available: http://dx.doi.org/10.1145/1376616.1376726
+
+R. Mccreadie, C. Mcdonald, and I. Ounis, "Comparing distributed indexing: To mapreduce or not?" in 7th Workshop on Large-Scale Distributed Systems for Information Retrieval, 2009.
+
+M. Isard, M. Budiu, Y. Yu, A. Birrell, and D. Fetterly, "Dryad: distributed data-parallel programs from sequential building blocks," in EuroSys '07: Proceedings of the 2nd ACM SIGOPS/EuroSys European Conference on Computer Systems 2007.    New York, NY, USA: ACM, 2007, pp. 59-72. [Online]. Available: http://dx.doi.org/10.1145/1272996.1273005
+
+M. Burrows, "The chubby lock service for loosely-coupled distributed systems," in USENIX'06: Proceedings of the 7th conference on USENIX Symposium on Operating Systems Design and Implementation.    Berkeley, CA, USA: USENIX Association, 2006, p. 24. [Online]. Available: http://portal.acm.org/citation.cfm?id=1267308.1267332
+
+L. A. Barroso and U. Hölzle, The Datacenter as a Computer: An Introduction to the Design of Warehouse-Scale Machines, M. D. Hill, Ed., vol. Lecture #6. [Online]. Available: http://www.morganclaypool.com/doi/abs/10.2200/S00193ED1V01Y200905CAC006
+
+A. Abouzeid, K. Bajda-Pawlikowski, D. Abadi, A. Rasin, and A. Silberschatz, "Hadoopdb: An architectural hybrid of mapreduce and dbms technologies for analytical workloads," in VLDB'09: Proceedings of the 2009 VLDB Endowment, August 2009.
+
+G. Decandia, D. Hastorun, M. Jampani, G. Kakulapati, A. Lakshman, A. Pilchin, S. Sivasubramanian, P. Vosshall, and W. Vogels, "Dynamo: amazon's highly available key-value store," in SOSP '07: Proceedings of twenty-first ACM SIGOPS symposium on Operating systems principles.    New York, NY, USA: ACM Press, 2007, pp. 205-220. [Online]. Available: http://dx.doi.org/10.1145/1294261.1294281
+
+
