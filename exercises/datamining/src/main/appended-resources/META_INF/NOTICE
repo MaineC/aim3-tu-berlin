@@ -1,0 +1,13 @@
+AIM 3 Student project Framework
+Copyright 2011 AIM III course DIMA/TU Berlin
+
+Includes software from other Apache Software Foundation projects,
+including, but not limited to:
+    - Apache Mahout
+    - Apache Lucene Java
+    - Apache Hadoop
+    - Apache Commons
+
+For further details on licenses of other libraries and projects used as part of this
+product please refer to the DEPENDENCIES file.
+
