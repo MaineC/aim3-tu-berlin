@@ -7,6 +7,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>AIM Datamining</name>
   <url>https://github.com/MaineC/aim3-tu-berlin/wiki</url>
+  <properties>
+    <hadoop.groupId>org.apache.hadoop</hadoop.groupId>
+    <hadoop.version>0.20.2-CDH3B4</hadoop.version>
+    <mahout.version>0.5-SNAPSHOT</mahout.version>
+    <mahout.collections.version>1.0</mahout.collections.version>
+  </properties>
   <modules>
     <module>core</module>
   </modules>
@@ -41,6 +47,7 @@
         <groupId>org.mockito</groupId>
         <artifactId>mockito-all</artifactId>
         <version>1.8.1</version>
+        <scope>test</scope>
       </dependency>
       <dependency> 
         <groupId>commons-cli</groupId>  
