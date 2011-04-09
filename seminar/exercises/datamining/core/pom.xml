@@ -7,11 +7,32 @@
     <groupId>de.tuberlin.dima.aim</groupId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+
   <groupId>de.tuberlin.dima.aim</groupId>
   <artifactId>core</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>AIM Core Modules</name>
   <url>http://maven.apache.org</url>
+
+  <profiles>
+    <profile>
+      <id>skipTests</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <maven.test.skip>true</maven.test.skip>
+      </properties>
+    </profile>
+    <profile>
+      <id>check</id>
+      <properties>
+        <maven.test.skip>false</maven.test.skip>
+      </properties>
+    </profile>
+
+  </profiles>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,6 +42,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
+       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>${hadoop.groupId}</groupId>
@@ -31,10 +53,6 @@
       <artifactId>guava</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.cloudera.hadoop</groupId>
-      <artifactId>hadoop-mrunit</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-core</artifactId>
       <version>3.1.0</version>
@@ -42,10 +60,15 @@
     <dependency>
       <groupId>org.apache.mahout</groupId>
       <artifactId>mahout-collections</artifactId>
-      <version>1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.mahout</groupId>
+        <artifactId>mahout-core</artifactId>
     </dependency>
   </dependencies>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
 </project>

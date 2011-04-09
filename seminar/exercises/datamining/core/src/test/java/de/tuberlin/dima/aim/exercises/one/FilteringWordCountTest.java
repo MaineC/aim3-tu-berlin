@@ -19,21 +19,15 @@ package de.tuberlin.dima.aim.exercises.one;
 
 import de.tuberlin.dima.aim.exercises.hadoop.HadoopTestcase;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mrunit.mapreduce.MapReduceDriver;
-import org.apache.hadoop.mrunit.types.Pair;
 import org.apache.mahout.common.iterator.FileLineIterable;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -65,6 +59,7 @@ public class FilteringWordCountTest extends HadoopTestcase {
     assertEquals(new Integer(3), counts.get("ring"));
     assertEquals(new Integer(2), counts.get("all"));
     assertEquals(new Integer(1), counts.get("darkness"));
+    assertFalse(counts.containsKey("the"));
   }
 
   protected Map<String,Integer> getCounts(File outputFile) throws IOException {

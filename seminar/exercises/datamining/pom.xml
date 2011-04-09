@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>de.tuberlin.dima.aim</groupId>
   <artifactId>datamining</artifactId>
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>AIM Datamining</name>
   <url>https://github.com/MaineC/aim3-tu-berlin/wiki</url>
-  <properties>
-    <hadoop.groupId>org.apache.hadoop</hadoop.groupId>
-    <hadoop.version>0.20.2-CDH3B4</hadoop.version>
-    <mahout.version>0.5-SNAPSHOT</mahout.version>
-    <mahout.collections.version>1.0</mahout.collections.version>
-  </properties>
+
   <modules>
     <module>core</module>
   </modules>
+
   <description>This project contains the result of the large scale data mining course at DIMA/ TU Berlin.</description>
+
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -24,17 +22,27 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
   <scm>
     <url>git@github.com:MaineC/aim3-tu-berlin.git</url>
     <connection>scm:git:git://github.com/MaineC/aim3-tu-berlin.git</connection>
     <developerConnection>scm:git:git@github.com:MaineC/aim3-tu-berlin.git</developerConnection>
   </scm>
+
+  <properties>
+    <hadoop.groupId>org.apache.hadoop</hadoop.groupId>
+    <hadoop.version>0.20.2-CDH3B4</hadoop.version>
+    <mahout.version>0.5-SNAPSHOT</mahout.version>
+    <mahout.collections.version>1.0</mahout.collections.version>
+  </properties>
+
   <repositories>
     <repository>
       <id>cloudera</id>
       <url>https://repository.cloudera.com/content/groups/cloudera-repos/</url>
     </repository>
   </repositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
