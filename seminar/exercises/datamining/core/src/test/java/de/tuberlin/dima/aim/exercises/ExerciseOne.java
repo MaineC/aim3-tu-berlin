@@ -17,14 +17,16 @@
 
 package de.tuberlin.dima.aim.exercises;
 
-import de.tuberlin.dima.aim.exercises.one.FilteringWordCountTest;
-import de.tuberlin.dima.aim.exercises.one.PrimeNumbersWritableTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+
+import de.tuberlin.dima.aim.exercises.one.AverageTemperaturePerMonthTest;
+import de.tuberlin.dima.aim.exercises.one.FilteringWordCountTest;
+import de.tuberlin.dima.aim.exercises.one.PrimeNumbersWritableTest;
 
 /**
  * mvn -Dtest=ExerciseOne clean test -Pcheck
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ FilteringWordCountTest.class, PrimeNumbersWritableTest.class})
+@Suite.SuiteClasses({ FilteringWordCountTest.class, PrimeNumbersWritableTest.class, AverageTemperaturePerMonthTest.class })
 public class ExerciseOne {}
