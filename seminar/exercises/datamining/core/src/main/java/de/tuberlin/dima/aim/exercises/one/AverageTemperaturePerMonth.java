@@ -26,7 +26,6 @@ public class AverageTemperaturePerMonth extends HadoopJob {
 
   @Override
   public int run(String[] args) throws Exception {
-
     Map<String,String> parsedArgs = parseArgs(args);
 
     Path inputPath = new Path(parsedArgs.get("--input"));
