@@ -1,0 +1,39 @@
+Required software
+
+ * git 1.7
+ * java 1.6
+ * maven 2.2.1
+ * eclipse helios
+
+1. Install m2eclipse plugin
+
+  Goto Help > Install new Software
+  Add > m2eclipse http://download.eclipse.org/technology/m2e/updates/M
+  Choose m2e, finish installation
+
+2. Get the project from github
+
+  Open a terminal and cd to your eclipse workspace:
+
+  cd /path/to/my/eclipse/workspace
+
+  Clone the project:
+
+  git clone git@github.com:MaineC/aim3-tu-berlin.git aim3-tu-berlin
+
+3. Import project into Eclipse
+
+  File > Import > Existing Maven projects
+  Choose /path/to/my/eclipse/workspace/aim3-tu-berlin/seminar/exercises/datamining
+  Finish import
+
+4. Fixing last errors
+
+  m2e has a little problem with our maven setup, here's how to fix that:
+  Open core/pom.xml, click on the pom.xml tab, use Ctrl + 1 to fix the error in line 5
+  Right-click on the core project, choose Maven > Update project configuration
+
+5. Getting started
+
+  The code you have to work on can be found in core/src/main/java now and the tests for 
+  it in core/src/test/java
