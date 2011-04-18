@@ -21,7 +21,7 @@ Required software
 
   git clone git@github.com:MaineC/aim3-tu-berlin.git aim3-tu-berlin
 
-3. Import project into Eclipse
+3. Import the project into Eclipse
 
   File > Import > Existing Maven projects
   Choose /path/to/my/eclipse/workspace/aim3-tu-berlin/seminar/exercises/datamining
