@@ -21,13 +21,16 @@ import de.tuberlin.dima.aim.exercises.Testcase;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.mahout.common.IOUtils;
 import org.apache.mahout.common.RandomUtils;
 import org.junit.After;
 import org.junit.Before;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public abstract class HadoopTestcase extends Testcase {
 
@@ -145,5 +148,20 @@ public abstract class HadoopTestcase extends Testcase {
       f.delete();
       return false;
     }
+  }
+
+  public List<String> readLines(String path) throws IOException {
+    List<String> lines = new ArrayList<String>();
+    BufferedReader reader = null;
+    try {
+      reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path)));
+      String line;
+      while ((line = reader.readLine()) != null) {
+        lines.add(line);
+      }
+    } finally {
+      IOUtils.quietClose(reader);
+    }
+    return lines;
   }
 }

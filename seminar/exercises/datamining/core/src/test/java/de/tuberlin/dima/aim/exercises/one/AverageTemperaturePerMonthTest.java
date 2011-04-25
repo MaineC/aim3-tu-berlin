@@ -44,7 +44,7 @@ public class AverageTemperaturePerMonthTest extends HadoopTestcase {
     File outputDir = getTestTempDir("output");
     outputDir.delete();
 
-    writeLines(inputFile, readTemperatures("/one/temperatures.tsv"));
+    writeLines(inputFile, readLines("/one/temperatures.tsv"));
 
     double minimumQuality = 0.25;
 
@@ -61,22 +61,6 @@ public class AverageTemperaturePerMonthTest extends HadoopTestcase {
     assertEquals(results.get(new YearAndMonth(1990, 8)), 8, EPSILON);
     assertEquals(results.get(new YearAndMonth(1992, 4)), 7.888, EPSILON);
     assertEquals(results.get(new YearAndMonth(1994, 1)), 8.24, EPSILON);
-  }
-
-
-  private List<String> readTemperatures(String path) throws IOException {
-    List<String> temperatures = new ArrayList<String>(10000);
-    BufferedReader reader = null;
-    try {
-      reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path)));
-      String line;
-      while ((line = reader.readLine()) != null) {
-        temperatures.add(line);
-      }
-    } finally {
-      IOUtils.quietClose(reader);
-    }
-    return temperatures;
   }
 
   class YearAndMonth {
