@@ -1,0 +1,216 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+AIM III – Large Scale Data Analysis and Data Mining
+\end_layout
+
+\begin_layout Section*
+Second Assignment
+\end_layout
+
+\begin_layout Subsubsection*
+Data and topic for this assignment
+\end_layout
+
+\begin_layout Standard
+In this assignment we deal with bibliographic data about authors and books.
+ The file 
+\begin_inset Formula $src/test/resources/two/authors.tsv$
+\end_inset
+
+ contains author names and ids, the file 
+\begin_inset Formula $src/test/resources/two/books.tsv$
+\end_inset
+
+ contains books, their year of publication and their author id.
+ We will use MapReduce and Hadoop to sort and join this data.
+\end_layout
+
+\begin_layout Subsubsection*
+1.
+ Sort the books with 
+\begin_inset Quotes eld
+\end_inset
+
+secondary sort
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We want to transform the book data into a list of 
+\begin_inset Formula $(century,title)$
+\end_inset
+
+-tuples, where century just denotes the first two digits of the year of
+ publication.
+ Each line in the output file should have the format 
+\begin_inset Formula $century<tab>book\, title$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The output data must be sorted ascending by century and title.
+ You must not sort the data yourself, but must use Hadoop's 
+\begin_inset Quotes eld
+\end_inset
+
+secondary sort
+\begin_inset Quotes erd
+\end_inset
+
+ capabilities to have the framework do the sorting for you in the shuffle
+ phase.
+\end_layout
+
+\begin_layout Subsubsection*
+2.
+ Join books and authors with a 
+\begin_inset Quotes eld
+\end_inset
+
+map-side in-memory join
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this task we will perform an inner join of the books and authors on the
+ author id.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Use a 
+\begin_inset Quotes eld
+\end_inset
+
+map-side in-memory join
+\begin_inset Quotes erd
+\end_inset
+
+: load the smaller dataset into memory in your mapper class and perform
+ the join before sending the tuples to the reducer over the network.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Each line in the output file must have the format:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $authorname<tab>book\, title<tab>year\, of\, publication$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+3.
+ Join books and authors with a 
+\begin_inset Quotes eld
+\end_inset
+
+reduce-side join
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will peform the same join here as in task 2, but we will use another
+ technique called 
+\begin_inset Quotes eld
+\end_inset
+
+reduce-side join
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The join should be performed in the reducer class, an ideal solution would
+ also avoid buffering more than one value in the reducer.
+\end_layout
+
+\begin_layout Subsubsection*
+Deadline
+\end_layout
+
+\begin_layout Standard
+Please send your solution as a patch file to 
+\begin_inset Formula $ssc@apache.org$
+\end_inset
+
+ with 
+\begin_inset Formula $isabel@apache.org$
+\end_inset
+
+ in CC until the 6th of May.
+\end_layout
+
+\end_body
+\end_document

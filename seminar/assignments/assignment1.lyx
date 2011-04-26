@@ -1,0 +1,168 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+AIM III – Large Scale Data Analysis and Data Mining
+\end_layout
+
+\begin_layout Section*
+First Assignment
+\end_layout
+
+\begin_layout Subsubsection*
+1.
+ WordCount - „Hello World“ of MapReduce 
+\end_layout
+
+\begin_layout Standard
+We'll start with the classic MapReduce example of counting words.
+ Your task is to complete the code in 
+\begin_inset Formula $de.tuberlin.dima.aim.exercises.one.FilteringWordCount$
+\end_inset
+
+.
+ The output of this job should be a textfile holding the following data
+ per line: 
+\begin_inset Formula $word<tab>count$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+An additional requirement here is that stop words like „to“, „and“, „in“
+ or „the“ should be removed from the input data and all words should be
+ lowercased.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+2.
+ A custom Writable 
+\end_layout
+
+\begin_layout Standard
+You will work on your first custom Writable object in this task.
+ Have a look at 
+\begin_inset Formula $de.tuberlin.dima.aim.exercises.one.PrimeNumbersWritable$
+\end_inset
+
+.
+ This class models a collection of prime numbers.
+ Writable classes need to be able to serialize to and deserialize from a
+ binary representation.
+ Enable that for our custom Writable by implementing 
+\begin_inset Formula $write(DataOutput\, out)$
+\end_inset
+
+ and 
+\begin_inset Formula $readFields(DataInput\, in)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+3.
+ Average temperature per month
+\end_layout
+
+\begin_layout Standard
+Have a look at the file 
+\begin_inset Formula $src/test/resources/one/temperatures.tsv$
+\end_inset
+
+.
+ It contains the output of a fictional temperature sensor, where each line
+ denotes the year, the month and the temperature of a single recording.
+ Additionally a quality parameter is included which expresses how „sure“
+ the sensor was of a single measurement: 
+\begin_inset Formula $year<tab>month<tab>temperature<tab>quality$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Your task is to implement a MapReduce program that computes the average
+ temperature per month of year.
+ It should ignore all records that are below a given minimum quality.
+ The output of your program will be a textfile holding the following data
+ per line: 
+\begin_inset Formula $year<tab>month<tab>average\, temperature$
+\end_inset
+
+ Use 
+\begin_inset Formula $de.tuberlin.dima.aim.exercises.one.AverageTemperaturePerMonth$
+\end_inset
+
+ as a starting point.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Deadline
+\end_layout
+
+\begin_layout Standard
+Please send your solution as a patch file to 
+\begin_inset Formula $ssc@apache.org$
+\end_inset
+
+ with 
+\begin_inset Formula $isabel@apache.org$
+\end_inset
+
+ in CC.
+\end_layout
+
+\end_body
+\end_document
