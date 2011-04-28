@@ -38,12 +38,18 @@ public class PrimeNumbersWritable implements Writable {
 
   @Override
   public void write(DataOutput out) throws IOException {
-    //IMPLEMENT ME
+    out.writeInt(numbers.length);
+    for (int number : numbers) {
+      out.writeInt(number);	
+    }
   }
 
   @Override
   public void readFields(DataInput in) throws IOException {
-    //IMPLEMENT ME
+    numbers = new int[in.readInt()];
+    for (int n = 0; n < numbers.length; n++) {
+      numbers[n] = in.readInt();	
+  	}
   }
 
   @Override

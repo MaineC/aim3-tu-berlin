@@ -26,11 +26,21 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
+import org.apache.lucene.util.Version;
 
 import java.io.IOException;
+import java.io.StringReader;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FilteringWordCount extends HadoopJob {
+	
+  /** Used for tokenization, stopword filtering and no stemming. */
+  private final static StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_31);	
+	
   @Override
   public int run(String[] args) throws Exception {
     Map<String,String> parsedArgs = parseArgs(args);
@@ -48,7 +58,20 @@ public class FilteringWordCount extends HadoopJob {
   static class FilteringWordCountMapper extends Mapper<Object,Text,Text,IntWritable> {
     @Override
     protected void map(Object key, Text line, Context ctx) throws IOException, InterruptedException {
-      // IMPLEMENT ME
+      // assuming that the number of distinct tokens in a document can be handled in memory
+      Map<String,Integer> termCounts = new HashMap<String,Integer>();      
+      TokenStream stream = analyzer.tokenStream(null, new StringReader(line.toString()));
+      CharTermAttribute attr = stream.addAttribute(CharTermAttribute.class);
+      while (stream.incrementToken()) {
+        if (attr.length() > 0) {
+          String term = new String(attr.buffer(), 0, attr.length());
+          int count = termCounts.containsKey(term) ? termCounts.get(term) : 0;
+          termCounts.put(term, ++count);
+        }
+      }  
+      for (Map.Entry<String, Integer> termCount : termCounts.entrySet()) {
+    	  ctx.write(new Text(termCount.getKey()), new IntWritable(termCount.getValue()));
+      }
     }
   }
 
@@ -56,7 +79,11 @@ public class FilteringWordCount extends HadoopJob {
     @Override
     protected void reduce(Text key, Iterable<IntWritable> values, Context ctx)
         throws IOException, InterruptedException {
-      // IMPLEMENT ME
+      int sum = 0;
+      for (IntWritable value : values) {
+        sum += value.get();	  
+      }
+      ctx.write(key, new IntWritable(sum));
     }
   }
 
