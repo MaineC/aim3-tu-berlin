@@ -57,21 +57,31 @@ public class SecondarySortBookSortTest extends HadoopTestcase {
       fail();
     }
 
-    CenturyAndTitle[] centuryAndTitlesFromInput = asList(booksFile, 1, 2);
-    CenturyAndTitle[] centuryAndTitlesFromHadoop = asList(outputFile, 0, 1);
+    CenturyAndTitle[] centuryAndTitlesFromInput = asListFromInput(booksFile);
+    CenturyAndTitle[] centuryAndTitlesFromHadoop = asListFromHadoopOut(outputFile);
 
     Arrays.sort(centuryAndTitlesFromInput);
 
     assertTrue(Arrays.deepEquals(centuryAndTitlesFromInput, centuryAndTitlesFromHadoop));
   }
 
-  CenturyAndTitle[] asList(File file, int centuryIndex, int titleIndex) throws IOException {
+  CenturyAndTitle[] asListFromHadoopOut(File file) throws IOException {
     Pattern separator = Pattern.compile("\t");
     List<CenturyAndTitle> centuryAndTitles = Lists.newArrayList();
-
     for (String line : new FileLineIterable(file)) {
       String[] tokens = separator.split(line);
-      centuryAndTitles.add(new CenturyAndTitle(Integer.parseInt(tokens[centuryIndex]), tokens[titleIndex]));
+      centuryAndTitles.add(new CenturyAndTitle(Integer.parseInt(tokens[0]), tokens[1]));
+    }
+
+    return centuryAndTitles.toArray(new CenturyAndTitle[centuryAndTitles.size()]);
+  }
+
+  CenturyAndTitle[] asListFromInput(File file) throws IOException {
+    Pattern separator = Pattern.compile("\t");
+    List<CenturyAndTitle> centuryAndTitles = Lists.newArrayList();
+    for (String line : new FileLineIterable(file)) {
+      String[] tokens = separator.split(line);
+      centuryAndTitles.add(new CenturyAndTitle(Integer.parseInt(tokens[1].substring(0, 2)), tokens[2]));
     }
 
     return centuryAndTitles.toArray(new CenturyAndTitle[centuryAndTitles.size()]);
