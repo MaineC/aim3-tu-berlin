@@ -18,14 +18,13 @@
 package de.tuberlin.dima.aim.exercises.one;
 
 import com.google.common.collect.Maps;
-import de.tuberlin.dima.aim.exercises.hadoop.HadoopTestcase;
+import de.tuberlin.dima.aim.exercises.HadoopAndPactTestcase;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.mahout.common.iterator.FileLineIterable;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertFalse;
@@ -34,7 +33,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Unit test for word count task.
  */
-public class FilteringWordCountTest extends HadoopTestcase {
+public class FilteringWordCountTest extends HadoopAndPactTestcase {
 
   @Test
   public void countWords() throws Exception {

@@ -15,9 +15,8 @@
  * limitations under the License.
  */
 
-package de.tuberlin.dima.aim.exercises.hadoop;
+package de.tuberlin.dima.aim.exercises;
 
-import de.tuberlin.dima.aim.exercises.Testcase;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -26,13 +25,21 @@ import org.apache.mahout.common.RandomUtils;
 import org.junit.After;
 import org.junit.Before;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class HadoopTestcase extends Testcase {
+public abstract class HadoopAndPactTestcase extends Testcase {
 
   private File testTempDir;
   private Path testTempDirPath;

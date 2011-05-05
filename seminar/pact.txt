@@ -1,0 +1,12 @@
+
+1. Checkout stratosphere from git
+
+  export GIT_SSL_NO_VERIFY=true
+  cd /path/to/projects
+  git clone https://stratosphere.eu/stratosphere.git stratosphere
+
+2. Build and install stratosphere artifacts
+
+  cd stratosphere
+  mvn -DskipTests clean install
+

@@ -18,24 +18,19 @@
 package de.tuberlin.dima.aim.exercises.one;
 
 import com.google.common.collect.Maps;
-import de.tuberlin.dima.aim.exercises.hadoop.HadoopTestcase;
+import de.tuberlin.dima.aim.exercises.HadoopAndPactTestcase;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.mahout.common.IOUtils;
 import org.apache.mahout.common.iterator.FileLineIterable;
 import org.junit.Test;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.assertEquals;
 
-public class AverageTemperaturePerMonthTest extends HadoopTestcase {
+public class AverageTemperaturePerMonthTest extends HadoopAndPactTestcase {
 
   @Test
   public void countWords() throws Exception {

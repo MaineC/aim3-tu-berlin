@@ -17,6 +17,8 @@
 
 package de.tuberlin.dima.aim.exercises;
 
-public abstract class Testcase {
+import eu.stratosphere.pact.testing.TestPlanTestCase;
+
+public abstract class Testcase extends TestPlanTestCase {
   public static final Double EPSILON = 0.0001;
 }
