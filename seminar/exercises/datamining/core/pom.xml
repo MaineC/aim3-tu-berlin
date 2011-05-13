@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <groupId>de.tuberlin.dima.aim</groupId>
+ <groupId>de.tuberlin.dima.aim</groupId>
   <artifactId>core</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>AIM Core Modules</name>
@@ -82,6 +82,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <house.keeping.base>${basedir}/..</house.keeping.base>
   </properties>
 
 </project>

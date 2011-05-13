@@ -35,6 +35,7 @@
     <mahout.version>0.5-SNAPSHOT</mahout.version>
     <mahout.collections.version>1.0</mahout.collections.version>
     <stratosphere.version>0.1</stratosphere.version>
+    <house.keeping.base>${basedir}</house.keeping.base>
   </properties>
 
   <repositories>
@@ -211,12 +212,12 @@
               </goals>
               <configuration>
                  <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
-                 <!--appendedResourcesDirectory>./src/main/appended-resources</appendedResourcesDirectory-->
+                 <appendedResourcesDirectory>${house.keeping.base}/src/main/appended-resources</appendedResourcesDirectory>
                  <resourceBundles>
                    <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
                  </resourceBundles>
                  <supplementalModels>
-                    <supplementalModel>supplemental-models.xml</supplementalModel>
+                    <supplementalModel>${house.keeping.base}/src/main/appended-resources/supplemental-models.xml</supplementalModel>
                  </supplementalModels>
                </configuration>
             </execution>
