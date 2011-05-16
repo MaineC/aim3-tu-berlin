@@ -58,6 +58,7 @@ public class AverageTemperaturePerMonthPactTest extends HadoopAndPactTestcase {
       testPlan.getInput().add(PactNull.getInstance(), new PactString(line));
     }
 
+    testPlan.setAllowedPactDoubleDelta(0.0001);
     for (KeyValuePair<AverageTemperaturePerMonthPact.YearMonthKey, PactDouble> expectedResult : expectedResults()) {
       testPlan.getExpectedOutput().add(expectedResult.getKey(), expectedResult.getValue());
     }
