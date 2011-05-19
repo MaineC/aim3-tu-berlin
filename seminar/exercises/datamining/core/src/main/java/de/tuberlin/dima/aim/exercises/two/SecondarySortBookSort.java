@@ -18,18 +18,26 @@
 package de.tuberlin.dima.aim.exercises.two;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ComparisonChain;
 import de.tuberlin.dima.aim.exercises.hadoop.HadoopJob;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
+import org.apache.hadoop.io.WritableComparator;
+import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class SecondarySortBookSort extends HadoopJob {
 
@@ -41,16 +49,25 @@ public class SecondarySortBookSort extends HadoopJob {
     Path inputPath = new Path(parsedArgs.get("--input"));
     Path outputPath = new Path(parsedArgs.get("--output"));
 
-    //IMPLEMENT ME
+    Job secondarySort = prepareJob(inputPath, outputPath, TextInputFormat.class, ByCenturyAndTitleMapper.class,
+        BookSortKey.class, Text.class, SecondarySortBookSortReducer.class, BookSortKey.class, Text.class,
+        TextOutputFormat.class);
+    secondarySort.setGroupingComparatorClass(BookSortKey.GroupingComparator.class);
+    secondarySort.waitForCompletion(true);
 
     return 0;
   }
 
   static class ByCenturyAndTitleMapper extends Mapper<Object,Text,BookSortKey,Text> {
 
+    private static final Pattern SEPARATOR = Pattern.compile("\t");
+
     @Override
     protected void map(Object key, Text line, Context ctx) throws IOException, InterruptedException {
-      // IMPLEMENT ME
+      String[] tokens = SEPARATOR.split(line.toString());
+      short century = Short.parseShort(tokens[1].substring(0, 2));
+      String title = tokens[2];
+      ctx.write(new BookSortKey(century, title), new Text(title));
     }
   }
 
@@ -67,35 +84,81 @@ public class SecondarySortBookSort extends HadoopJob {
 
   static class BookSortKey implements WritableComparable<BookSortKey> {
 
+    private short century;
+    private String title;
+
     BookSortKey() {}
+
+    BookSortKey(short century, String title) {
+      this.century = century;
+      this.title = Preconditions.checkNotNull(title);
+    }
+
+    static {
+      WritableComparator.define(BookSortKey.class, new SecondarySortComparator());
+    }
 
     @Override
     public int compareTo(BookSortKey other) {
-      // IMPLEMENT ME
-      return 0;
+      return century == other.century ? 0 : century < other.century ? -1 : 1;
     }
 
     @Override
     public void write(DataOutput out) throws IOException {
-      // IMPLEMENT ME
+      out.writeShort(century);
+      out.writeUTF(title);
     }
 
     @Override
     public void readFields(DataInput in) throws IOException {
-      // IMPLEMENT ME
+      century = in.readShort();
+      title = in.readUTF();
     }
 
     @Override
     public boolean equals(Object o) {
-      // IMPLEMENT ME
-      return true;
+      if (o instanceof BookSortKey) {
+        BookSortKey other = (BookSortKey) o;
+        return century == other.century;
+      }
+      return false;
     }
 
     @Override
     public int hashCode() {
-      // IMPLEMENT ME
-      return 0;
+      return century;
     }
+
+    @Override
+    public String toString() {
+      return String.valueOf(century);
+    }
+
+    static class SecondarySortComparator extends WritableComparator implements Serializable {
+
+      protected SecondarySortComparator() {
+        super(BookSortKey.class, true);
+      }
+
+      @Override
+      public int compare(WritableComparable a, WritableComparable b) {
+        BookSortKey keyA = (BookSortKey) a;
+        BookSortKey keyB = (BookSortKey) b;
+
+        return ComparisonChain.start()
+            .compare(keyA.century, keyB.century)
+            .compare(keyA.title, keyB.title)
+            .result();
+      }
+    }
+
+    static class GroupingComparator extends WritableComparator implements Serializable {
+
+      protected GroupingComparator() {
+        super(BookSortKey.class, true);
+      }
+    }
+
   }
 
 }
