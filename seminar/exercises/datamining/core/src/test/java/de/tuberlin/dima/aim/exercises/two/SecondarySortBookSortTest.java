@@ -20,7 +20,7 @@ package de.tuberlin.dima.aim.exercises.two;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.Lists;
-import de.tuberlin.dima.aim.exercises.hadoop.HadoopTestcase;
+import de.tuberlin.dima.aim.exercises.HadoopAndPactTestcase;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.mahout.common.iterator.FileLineIterable;
 import org.junit.Test;
@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-public class SecondarySortBookSortTest extends HadoopTestcase {
+public class SecondarySortBookSortTest extends HadoopAndPactTestcase {
 
   @Test
   public void testSorting() throws Exception {

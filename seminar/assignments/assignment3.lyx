@@ -1,0 +1,142 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+AIM III – Large Scale Data Analysis and Data Mining
+\end_layout
+
+\begin_layout Section*
+Third Assignment
+\end_layout
+
+\begin_layout Subsubsection*
+Data and topic for this assignment
+\end_layout
+
+\begin_layout Standard
+In this assignment we'll have a look at the PACT programming model of the
+ Nephele Execution Engine.
+\end_layout
+
+\begin_layout Subsubsection*
+1.
+ Average temperature per month
+\end_layout
+
+\begin_layout Standard
+Perform the 
+\begin_inset Quotes eld
+\end_inset
+
+average temperature per month
+\begin_inset Quotes erd
+\end_inset
+
+ computation from Assignment 1 here using Map/Reduce in PACT instead of
+ Hadoop.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Implement the missing parts in 
+\begin_inset Formula $AverageTemperaturePerMonthPact$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+2.
+ Join books and authors using a PACT
+\end_layout
+
+\begin_layout Standard
+We will peform the join of books and authors from Assignment 2 here using
+ a 
+\begin_inset Quotes eld
+\end_inset
+
+Match
+\begin_inset Quotes erd
+\end_inset
+
+-PACT.
+ This PACT will read in the different tuple sets and supply all pairs having
+ the same key to a user-defined function which provides a much easier way
+ of joining than plain Hadoop code.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Implement the missing parts in 
+\begin_inset Formula $BookAndAuthorJoinPact$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Deadline
+\end_layout
+
+\begin_layout Standard
+Please send your solution as a patch file to 
+\begin_inset Formula $ssc@apache.org$
+\end_inset
+
+ with 
+\begin_inset Formula $isabel@apache.org$
+\end_inset
+
+ in CC until the 19th of May.
+\end_layout
+
+\end_body
+\end_document

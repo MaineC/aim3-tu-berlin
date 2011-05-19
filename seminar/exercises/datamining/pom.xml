@@ -34,6 +34,7 @@
     <hadoop.version>0.20.2-CDH3B4</hadoop.version>
     <mahout.version>0.5-SNAPSHOT</mahout.version>
     <mahout.collections.version>1.0</mahout.collections.version>
+    <stratosphere.version>0.1</stratosphere.version>
   </properties>
 
   <repositories>
@@ -66,7 +67,7 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-all</artifactId>
-        <version>1.8.1</version>
+        <version>1.8.5</version>
         <scope>test</scope>
       </dependency>
       <dependency> 
@@ -164,6 +165,16 @@
         <artifactId>log4j</artifactId>
         <version>1.2.14</version>
       </dependency>
+    <dependency>
+      <groupId>eu.stratosphere</groupId>
+      <artifactId>pact-common</artifactId>
+      <version>${stratosphere.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>eu.stratosphere</groupId>
+      <artifactId>pact-clients</artifactId>
+      <version>${stratosphere.version}</version>
+    </dependency>
     </dependencies>
   </dependencyManagement>
   <build>

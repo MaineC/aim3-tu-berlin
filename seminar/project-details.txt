@@ -1,0 +1,28 @@
+RowSimilarityJob
+
+ * org.apache.mahout.math.hadoop.similarity
+ * http://www.slideshare.net/sscdotopen/mahoutcf
+
+NaiveBayes
+
+ * org.apache.mahout.classifier.bayes.mapreduce.bayes
+ * https://cwiki.apache.org/confluence/display/MAHOUT/NaiveBayes
+
+K-Means
+
+ * org.apache.mahout.clustering.kmeans
+ * http://www.stratosphere.eu/projects/Stratosphere/wiki/KMeansExample
+
+Collocation
+
+ * org.apache.mahout.vectorizer.collocations.llr
+ * https://cwiki.apache.org/confluence/display/MAHOUT/Collocations
+
+k-trusses
+
+ * Cohen: "Graph Twiddling in a MapReduce World", 
+   http://www.csee.usf.edu/~anda/CIS6930-S11/papers/graph-processing-w-mapreduce.pdf
+
+PageRank
+
+ * http://www.cs.cmu.edu/~pegasus/index.htm
